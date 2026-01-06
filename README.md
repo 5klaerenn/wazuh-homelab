@@ -19,8 +19,8 @@ d'intrusions et la pratique Blue Team.
 
 ## Objectifs du projet
 
-- [X] Installation SIEM
-- [ ] Déploiement agents Windows/Linux
+- [x] Installation SIEM
+- [x] Déploiement agents Windows/Linux
 - [ ] Création de règles de détection custom
 - [ ] Simulation d'attaques et détection
 - [ ] Documentation incident
@@ -28,3 +28,4 @@ d'intrusions et la pratique Blue Team.
 ## Documentation
 
 - [Installation Wazuh](docs/01-installation.md)
+- [Déploiement Agent : Windows](/docs/02-agent-deployment-windows.md)
