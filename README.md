@@ -20,7 +20,8 @@ d'intrusions et la pratique Blue Team.
 ## Objectifs du projet
 
 - [x] Installation SIEM
-- [x] Déploiement agents Windows/Linux
+- [x] Déploiement agent Windows
+- [x] Déploiement agent Kali Linux
 - [ ] Création de règles de détection custom
 - [ ] Simulation d'attaques et détection
 - [ ] Documentation incident
