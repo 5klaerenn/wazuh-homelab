@@ -12,7 +12,7 @@ Ce document couvre l'intégration de Penpot, un service exposé sur Internet via
 | VM Penpot | Hôte Docker | 192.168.18.50 |
 | Penpot Frontend | Application | Conteneur Docker |
 | Cloudflare Tunnel | Reverse Proxy | root-tunnel-1 |
-| Cloudflare Access | Authentification | penpot.5klae.com |
+| Cloudflare Access | Authentification | penpot**.*** |
 
 ## Architecture
 
@@ -39,16 +39,18 @@ Fichier : `/var/ossec/etc/ossec.conf` sur la VM Penpot
 ```xml
 <localfile>
   <log_format>json</log_format>
-  <location>/var/lib/docker/containers/b5829627e7185a93d0c2e2a487543df76e658ca211a2530e338b4e36969b7719/b5829627e7185a93d0c2e2a487543df76e658ca211a2530e338b4e36969b7719-json.log</location>
+  <location>/var/lib/docker/containers/<hash>/<hash>.log</location>
 </localfile>
 ```
 
 > **Note** : Pour trouver le chemin du log d'un conteneur :
+>
 > ```bash
 > docker inspect root-penpot-frontend-1 | grep LogPath
 > ```
 
 Redémarrer l'agent :
+
 ```bash
 sudo systemctl restart wazuh-agent
 ```
@@ -80,6 +82,7 @@ archives:
 ```
 
 Redémarrer :
+
 ```bash
 sudo systemctl restart wazuh-manager
 sudo systemctl restart filebeat
@@ -88,6 +91,7 @@ sudo systemctl restart filebeat
 ### Index Pattern Archives
 
 Dans Wazuh Dashboard :
+
 1. Stack Management → Index Patterns
 2. Create index pattern : `wazuh-archives-*`
 3. Time field : `timestamp`
@@ -146,6 +150,7 @@ Fichier : `/var/ossec/etc/rules/penpot_rules.xml`
 ```
 
 Redémarrer le manager :
+
 ```bash
 sudo systemctl restart wazuh-manager
 ```
@@ -156,14 +161,14 @@ sudo systemctl restart wazuh-manager
 
 ### Exécution
 
-1. Accéder à `penpot.5klae.com`
+1. Accéder à `penpot**.***`
 2. Tenter un login avec un mauvais mot de passe
 
 ### Détection
 
 | Résultat | Notes |
 |----------|-------|
-| ✅ Détecté | Alerte 401 Unauthorized |
+| Détecté | Alerte 401 Unauthorized |
 
 ### Détails de l'Alerte Wazuh
 

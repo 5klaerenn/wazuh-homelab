@@ -10,7 +10,7 @@ Ce document couvre les simulations d'attaques réalisées dans le homelab et leu
 |---------|------|-----|
 | Wazuh Server | SIEM | 192.168.18.110 |
 | Windows 10 | Cible | 192.168.18.120 |
-| Kali Linux | Attaquant | 192.168.18.3 |
+| Kali Linux | Attaquant | 192.168.18.130 |
 
 ---
 
